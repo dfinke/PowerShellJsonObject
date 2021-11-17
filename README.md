@@ -1,4 +1,4 @@
-# psjo
+# PowerShell Json Object (psjo)
 
 JSON output from PowerShell.
 
