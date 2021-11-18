@@ -18,10 +18,11 @@
     CompanyName        = 'Doug Finke'
 
     # Copyright statement for this module
-    Copyright          = 'c 2020 All rights reserved.'
+    Copyright          = 'c 2021 All rights reserved.'
 
     # Description of the functionality provided by this module
     Description        = @'
+Simplify generating JSON output from PowerShell
 '@
 
     # Functions to export from this module
@@ -51,10 +52,10 @@
             #IconUri = "http://pesterbdd.com/images/Pester.png"
 
             # The web address of this module's project or support homepage.
-            ProjectUri   = "https://github.com/dfinke/PowerShellJsonObject"
+            ProjectUri   = "https://github.com/dfinke/psjo"
 
             # The web address of this module's license. Points to a page that's embeddable and linkable.
-            LicenseUri   = "https://github.com/dfinke/PowerShellJsonObject/blob/master/LICENSE.txt"
+            LicenseUri   = "https://github.com/dfinke/pajsENSE.txt"
 
             # Release notes for this particular version of the module
             #ReleaseNotes = $True
