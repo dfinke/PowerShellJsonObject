@@ -1,7 +1,8 @@
 function psjo {
     param(
         [Switch] $a,
-        [Switch] $c
+        [Switch] $c,
+        [int] $depth = 5
     )
     <#
         .Example
@@ -32,5 +33,5 @@ function psjo {
         try { $value = ConvertFrom-Json $value } catch { }
         $dict.$key = $value
     }
-    ConvertTo-Json $dict -Depth 5
+    ConvertTo-Json $dict -Depth $depth
 }
