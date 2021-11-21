@@ -1,8 +1,8 @@
 function psjo {
     param(
         [Switch] $a,
-        [Switch] $c,
-        [Parameter(Mandatory = $false)] $depth = 5
+        [Switch] $c <#,
+        [Parameter(Mandatory = $false)] $depth = 5 #>
     )
     <#
         .Example
