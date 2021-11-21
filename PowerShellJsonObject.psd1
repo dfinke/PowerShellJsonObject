@@ -52,7 +52,7 @@ Simplify generating JSON output from PowerShell
             #IconUri = "http://pesterbdd.com/images/Pester.png"
 
             # The web address of this module's project or support homepage.
-            ProjectUri   = "https://github.com/dfinke/psjo"
+            ProjectUri   = "https://github.com/dfinke/PowerShellJsonObject"
 
             # The web address of this module's license. Points to a page that's embeddable and linkable.
             LicenseUri   = "https://github.com/dfinke/pajsENSE.txt"
