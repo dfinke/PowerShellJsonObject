@@ -2,7 +2,7 @@ function psjo {
     param(
         [Switch] $a,
         [Switch] $c,
-        [int] $depth = 5
+        $depth = 5
     )
     <#
         .Example
