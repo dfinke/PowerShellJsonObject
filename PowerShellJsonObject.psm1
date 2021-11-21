@@ -19,6 +19,7 @@ function psjo {
                     }
         }
     #>
+    $depth = 5
 
     if ($a) {
         $p = @{compress = $c }
