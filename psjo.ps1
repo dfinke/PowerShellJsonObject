@@ -44,7 +44,11 @@ function psjo {
             try {
                 $value = $( '{' + $value + '}'| ConvertFrom-Json)
             } catch {
-                $key, $value = $value.split('=')
+                if ( "$key" -eq "") {
+                    $key, $value = $value.split('=')
+                } elseif ($value -like "*=*") {
+                    $value = $( '{' + $($value -replace "="; ":") + '}' | ConvertFrom-Json | ConvertTo-Json)
+                }
             }
         }
         $dict.$key = $value
@@ -63,8 +67,10 @@ psjo number=123
 psjo float=123.12
 psjo string="this is a string"
 psjo otherstring=foobar
-psjo object={ \"a\":true }
+psjo object={\"a\":true}
 psjo array=[1, 2, 3]
 psjo boolean=true
 
-psjo number=123 float=123.12 string="this is a string" otherstring=foobar object= { \"a\":true } array=[1, 2, 3] boolean=true
+psjo number=123 float=123.12 string="this is a string" otherstring=foobar object='{"a":true}' array='[1, 2, 3]' boolean=true
+
+psjo number=123 float=123.12 string="this is a string" otherstring=foobar object={\"a\":true} array=[1, 2, 3] boolean=true
