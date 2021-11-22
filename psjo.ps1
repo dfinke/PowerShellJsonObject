@@ -1,5 +1,4 @@
 function psjo {
-    [CmdletBinding()]
     param(
         [Switch] $a,
         [Switch] $c <#,
@@ -31,11 +30,22 @@ function psjo {
 
     $dict = [ordered]@{ }
     foreach ($item in $args) {
-        $key, $value = $item.split('=')
         try {
-            $value = ConvertFrom-Json $value
+            $key, $value = $item.split('=')
         }
         catch {
+            $value = $("'" + $item + "'" | ConvertFrom-Json)
+        }
+
+        try {
+            $value = $( $value | ConvertFrom-Json)
+        }
+        catch {
+            try {
+                $value = $( '{' + $value + '}'| ConvertFrom-Json)
+            } catch {
+                $key, $value = $value.split('=')
+            }
         }
         $dict.$key = $value
     }
@@ -44,9 +54,17 @@ function psjo {
         ConvertTo-Json $dict -Depth $depth
     }
     catch {
-
+        $dict
     }
     
 }
 
-psjo number=123 float=123.12 string="this is a string" otherstring=foobar object= { \"a\":true } array=[1, 2, 3] boolean=true -verbose
+psjo number=123
+psjo float=123.12
+psjo string="this is a string"
+psjo otherstring=foobar
+psjo object={ \"a\":true }
+psjo array=[1, 2, 3]
+psjo boolean=true
+
+psjo number=123 float=123.12 string="this is a string" otherstring=foobar object= { \"a\":true } array=[1, 2, 3] boolean=true
