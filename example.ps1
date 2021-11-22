@@ -1,6 +1,6 @@
-ipmo ./psjo.psd1 -Force
+Import-Module ./PowerShellJsonObject.psd1 -Force
 
-cls
+Clear-Host
 ''
 psjo p=$(psjo x=10 y=20)
 ''
